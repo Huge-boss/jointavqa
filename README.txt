@@ -1,5 +1,7 @@
-当前新实验：v5/，三组分别为重新实测baseline、固定预算中点取证、题内证据记忆加最多一次按需回看。
-独立分支experiment/av-memory-agent-v3-20pct；配置与计时口径见v5/README.txt和protocol.json，状态以v5/inspect.sh为准。
+当前续跑：stage_v1/，用户改为已有baseline复用、同模型按固定取证→Agent顺序、每阶段GPU0/3独立分题，然后换下一个模型。
+独立分支experiment/av-stage-dualgpu-20pct；方法仍是冻结v5，说明见stage_v1/README.txt，状态以stage_v1/inspect.sh为准。collect_stage.py在本地收集完成结果。
+旧v5在题目边界停止：保留AV两模型各642题，Joint Omni96题、Video99题。全部成功结果按来源SHA继承，只补缺失固定/Agent，baseline不再生成。
+以下为历史记录：
 v3/v4仅pilot，因VideoLLaMA提前结束结构化记忆而未进入正式20%。v5在同一次生成中约束字段格式，记录模型选择；所有旧版本保留。
 v5四组pilot完整通过后，正式20%于2026-10-02 08:47:28 UTC启动，主PID445202；仅GPU0/3，实际状态查v5/runs。
 collect_v5.py是本轮本地收集器：通过现有ssh_remote.py和环境凭据读取状态，完成后SHA核验下载原始归档、JSON汇总并生成中文结果文本，不启动GPU任务，不恢复旧自动跟进。
