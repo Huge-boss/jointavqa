@@ -1,0 +1,50 @@
+{
+  "version": "split_evidence_v11",
+  "purpose": "Complete integrated method development; no component ablations this round",
+  "datasets": {
+    "joint": 571,
+    "avspeaker": 642
+  },
+  "subset": "exact frozen v5 development20; remaining80 forbidden until method freeze",
+  "models": [
+    "Qwen2.5-Omni-7B",
+    "VideoLLaMA2.1-7B-AV"
+  ],
+  "physical_gpus": [
+    0,
+    1,
+    3
+  ],
+  "schedule": "all three GPUs independently load the same complete model; Omni Joint then AV, VideoLLaMA Joint then AV",
+  "pipeline": [
+    "reuse immutable native output",
+    "global structured observations for proposal compartment",
+    "global raw plus proposal notes yields provisional answer",
+    "only disagreement triggers fresh <=12s local observation when duration>12s",
+    "separate verifier sees raw global and fresh local only; no proposal/global notes/candidate answers",
+    "change native only when clean proposal and separate verifier agree"
+  ],
+  "new_calls_max": 4,
+  "logical_calls_max_including_native": 5,
+  "token_limits": {
+    "global_observation": 208,
+    "local_observation": 112,
+    "proposal": 16,
+    "verification": 16
+  },
+  "new_generation": "greedy seed42 per call, native dtype/preprocessing; syntax-only tool observation grammar, no answer field and no constrained answer generation",
+  "local_window_seconds_max": 12,
+  "memory": "Two question-local compartments. Global generated notes condition proposal only; fresh local question-conditioned observation conditions verification only. Source hashes, actual windows, audio coverage recorded. This is context separation, not independent models or statistically independent observations.",
+  "no_cross_question_answer_memory": true,
+  "revision": "Agreement retains native. Disagreement requires separate evidence compartment verification. Unreadable/truncated proposal or unconfirmed revision retains native.",
+  "audio_budget": "Native global policy unchanged. Local crop may add audio evidence absent from native sparse/first300s coverage. Report as additional input, not memory-only or equal-compute gain.",
+  "scoring": "same frozen v5 parser; AV official first-letter primary plus strict secondary; all planned questions count, missing/unparsed/errors wrong",
+  "cost": "new cold application-cache work plus reused native recorded seconds; initialization and technical pilot separately; OS cache uncontrolled",
+  "technical_pilot": "existing shortest/longest + first four distinct task inputs, label-blind; native parity, observation repeat, schema>=4/6; never score threshold",
+  "selection": "One unified method across all four groups; complete whole round before next decision, retain all versions.",
+  "novelty_status": "Research hypothesis: conditional acquisition with separated proposal and verification evidence. No established novelty or generalization gain. Same development20; no component ablations.",
+  "stop": "one full round then evidence-based next-version review; no blind endless GPU occupation; OOM at most three process attempts per shard, other errors diagnosed",
+  "repair": "New complete candidate after all four V10 groups finished, not a patch to frozen V10. V10 accepted 667 of 781 differing proposals while sharing all notes; net +4/2426. New ordering seeks to reduce shared-note anchoring and unnecessary local calls. Thresholds/seeds/options/scorers unchanged.",
+  "control_parser": "Existing frozen label-blind joint_parser for baseline/proposal/verification, recognizes explicit answer+explanation, no change to primary scoring",
+  "memory_validation": "Timestamp-only or non-descriptive tool fields become UNKNOWN, token-capped text explicitly marked partial; original raw output retained"
+}
