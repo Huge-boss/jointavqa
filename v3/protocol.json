@@ -1,0 +1,23 @@
+{
+  "version": "av-memory-agent-v3-20261002",
+  "status": "Prospective three-arm development comparison; efficacy and efficiency unproven",
+  "models": ["Qwen2.5-Omni-7B", "VideoLLaMA2.1-7B-AV"],
+  "gpus": {"omni": 0, "videollama": 3},
+  "datasets": {"joint": 571, "avspeaker": 642},
+  "selection": "Exactly the previously frozen 20% question-stratified qids/options/execution order; no resampling. Previously inspected development data, not unseen validation.",
+  "baseline": "Re-run native single-pass original prompt and 256-token cap for same-run timing; pilot must match historical native media hashes, tokens and text.",
+  "fixed": "Initial whole-clip provisional answer and brief evidence memory, then exactly one 12-second synchronized midpoint window and final answer; two calls; deterministic question-independent uniform temporal selection control.",
+  "agent": "Same initial call and memory format; no review only if complete consistent schema declares no missing/conflicting evidence. Otherwise one synchronized 12-second model-requested review, merged with final answer; one or two calls. Invalid request falls back to midpoint; logged.",
+  "limits": {"memory_new_tokens": 128, "review_final_new_tokens": 16, "baseline_new_tokens": 256, "review_window_seconds": 12, "memory_chars": 1000, "max_calls_fixed": 2, "max_calls_agent": 2},
+  "generation": {"do_sample": false, "num_beams": 1, "repetition_penalty": 1.0, "seed_each_call_and_preparation": 42},
+  "native_policies": {"joint": "BF16; uniform at most32 visual frames; Omni first300s continuous audio; Video native AV encoder8x2s endpoint-inclusive sampling inside first300s, padded30s", "avspeaker": "Omni BF16 native1fps actualfps full continuous audio; Video FP16 native8frames and official8x2s audio sampling; no extra ASR/OCR/model"},
+  "review_media": "Lossless x264 and PCM16 synchronized excerpt from released qid clip, bounded by local0..duration. Original spatial dimensions. No external source footage. Joint review can access audio beyond original300s prefix; extra access must be reported.",
+  "memory_scope": "Per-question working memory only; no cross-question answers, no labels or old predictions. Raw media cache is per arm, at most2 CPU prepared observations; no KV-cache reuse or weight updates.",
+  "timing": "Every arm independently starts with empty application media cache. Include clear/cache preparation, crop, processor, transfers, generation and memory/controller. No shared first-call timing between arms. Report mean/P50/P95/sum; input/model initialization recorded separately; OS filesystem cache and hardware state uncontrolled. Warm cache is measured separately on pilot only, never substituted for cold latency. Standalone totals add common model load cost explicitly.",
+  "ordering": "Deterministic SHA256(qid|method) arm permutation, independent of score",
+  "scoring": "Independent after outputs saved; fixed Joint explicit-answer-v2 parser; AV upstream first-letter plus strict secondary. Full subset denominator with unparsed/error/missing wrong, also parsed-only and task counts. Same successful qids paired; confidence intervals only after complete.",
+  "pilot": "Same frozen shortest/longest selected question for each dataset/model; input/token/text parity, cache repeatability, output format and truncation; no accuracy threshold",
+  "failure": "OOM at most3 fresh worker attempts; other errors halt lane. Preserve failures; executed code/protocol changes require a new version. No score-driven retries.",
+  "completion": "Two datasets and both models, three arms; no automatic80% or full. Final raw predictions, config, source hashes, timing, paired gains/losses and category summaries archived.",
+  "limitations": "Fixed always spends2 calls, agent at most2: equal upper bound, not exact compute equality. Self-reported evidence gaps are uncalibrated and must be evaluated. Text memory can omit events; full local evidence does not establish absence globally. This is not a replication of literature pipelines nor a demonstrated novel method."
+}
