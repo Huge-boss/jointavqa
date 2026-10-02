@@ -1,3 +1,6 @@
+最新续跑：stage_roundoff_v2/，仅修复片段时长浮点误判，保留窗口与参数，继承所有成功结果，只补Joint VideoLLaMA Agent剩余279题。
+独立分支experiment/av-stage-roundoff-20pct；collector为collect_roundoff.py，旧stage_v1已退出且证据保留。
+
 当前续跑：stage_v1/，用户改为已有baseline复用、同模型按固定取证→Agent顺序、每阶段GPU0/3独立分题，然后换下一个模型。
 独立分支experiment/av-stage-dualgpu-20pct；方法仍是冻结v5，说明见stage_v1/README.txt，状态以stage_v1/inspect.sh为准。collect_stage.py在本地收集完成结果。
 旧v5在题目边界停止：保留AV两模型各642题，Joint Omni96题、Video99题。全部成功结果按来源SHA继承，只补缺失固定/Agent，baseline不再生成。
