@@ -126,16 +126,17 @@ def main():
                          'parsed_only_pct': 100 * correct / parsed if parsed else None,
                          'historical_error_attempts': sum(r['status'] == 'error' for r in records),
                          'mean_logical_calls': 1 if mode == 'baseline' else 4,
-                         'mean_model_seconds': sum(c['seconds'] for c in actual) / len(cost) if cost else None,
+                         'mean_end_to_end_call_seconds': sum(c['seconds'] for c in actual) / len(cost) if cost else None,
                          'mean_input_tokens': sum(c.get('input_tokens', 0) for c in actual) / len(cost) if cost else None,
                          'mean_frames': sum(c.get('frames', 0) for c in actual) / len(cost) if cost else None,
                          'mean_supplied_audio_seconds': sum(c.get('audio_seconds_supplied', 0) for c in actual) / len(cost) if cost else None,
+                         'mean_encoded_audio_seconds': sum(c.get('audio_seconds_encoded', sum(max(0,b-a) for a,b in c.get('native_audio_clip_timepoints', []))) for c in actual) / len(cost) if cost else None,
                          'mean_generated_tokens': sum(c['generated_tokens'] for c in actual) / len(cost) if cost else None,
                          'intermediate_token_limits': sum(c['reached_token_limit'] for c in actual if not c['stage'].endswith('_final')),
                          'final_token_limits': sum(c['reached_token_limit'] for c in actual if c['stage'].endswith('_final')),
                          'tool_fallbacks': sum(d['fallback'] for arm in cost for d in arm['decisions'])}
                 if mode == 'baseline':
-                    entry['mean_model_seconds'] = sum(old[r['qid']].get('elapsed_seconds', old[r['qid']].get('seconds', 0)) for r in rows) / len(rows)
+                    entry['mean_end_to_end_call_seconds'] = sum(old[r['qid']].get('elapsed_seconds', old[r['qid']].get('seconds', 0)) for r in rows) / len(rows)
                 table.append(entry)
                 for task in sorted({r['task'] for r in rows}):
                     sub = [r for r in selected if r['task'] == task]

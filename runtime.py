@@ -29,12 +29,12 @@ def probe(path):
 
 
 def excerpt(source, interval, dest):
-    # Accurate post-input seeking. Preserve yuv420 video with lossless x264 coding;
+    # Accurate input seeking with re-encoding. Preserve video with lossless x264 coding;
     # decoded audio is written as uncompressed 16-bit PCM, with no AAC re-encoding.
     start, end = interval
     assert 0 <= start < end and end - start <= 12.001
-    cmd = ['ffmpeg', '-nostdin', '-v', 'error', '-threads', '2', '-i', str(source),
-           '-ss', str(start), '-t', str(end - start), '-map', '0:v:0', '-map', '0:a:0',
+    cmd = ['ffmpeg', '-nostdin', '-v', 'error', '-threads', '2', '-ss', str(start), '-i', str(source),
+           '-t', str(end - start), '-map', '0:v:0', '-map', '0:a:0',
            '-sn', '-dn', '-c:v', 'libx264', '-preset', 'ultrafast', '-crf', '0', '-threads', '2',
            '-c:a', 'pcm_s16le', '-map_metadata', '-1', '-y', str(dest)]
     subprocess.run(cmd, check=True, capture_output=True, timeout=240)
