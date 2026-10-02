@@ -1,3 +1,7 @@
+当前执行版本：v2/。根目录v1因工具格式校验问题停止并保留，禁止启动根目录launch.sh或run_campaign.py。
+启动/检查使用v2/launch.sh与v2/inspect.sh；结果在v2/runs/。v2沿用根目录已冻结的子集与只读compat。
+详见v2/REPAIR.txt。
+
 免训练音画证据 Agent：首轮固定20%对照（2026-10-02）
 
 目标与范围
