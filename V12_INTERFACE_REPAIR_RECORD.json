@@ -1,0 +1,28 @@
+{
+  "version": "V12 to V13 technical interface repair",
+  "V12_formal_released": false,
+  "V12_pilot_n": 24,
+  "native_parity": true,
+  "repeat": true,
+  "nondescriptive_evidence_by_group": {
+    "avspeaker/omni": [
+      6,
+      5
+    ],
+    "avspeaker/videollama": [
+      6,
+      2
+    ],
+    "joint/omni": [
+      6,
+      6
+    ],
+    "joint/videollama": [
+      6,
+      3
+    ]
+  },
+  "rule_note": "Counts are descriptive interface audit, not accuracy; >=2 Latin letters heuristic not factual validation.",
+  "archive_sha256": "1f94c3badf2636f9db56866a95d4d744721d7fca6924d3002a95f8172379aa9e",
+  "repair": "Remove dense numerical timing table from initial prompt and decimal punctuation early stop. Preserve actual source mapping in raw. Final tool-format instruction after original question. No label or correctness gate."
+}
