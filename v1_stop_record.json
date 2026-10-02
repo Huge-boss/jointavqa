@@ -1,0 +1,66 @@
+{
+  "time": 1790923077.9236197,
+  "reason": "Pilot tool protocol failure: numeric SEEK with sentence punctuation rejected; local call often answers instead of requesting second evidence. No labels used to design fix. Preserve v1; v2 independent directory.",
+  "stopped": [
+    {
+      "pid": 3223964,
+      "args": [
+        "/root/anaconda3/envs/Joint-avqa/bin/python",
+        "/data/cfc/code/project/AVQA-agent/experiments/av_evidence_agent_v1/run_campaign.py",
+        ""
+      ]
+    },
+    {
+      "pid": 3224045,
+      "args": [
+        "/root/anaconda3/envs/Joint-avqa/bin/python",
+        "/data/cfc/code/project/AVQA-agent/experiments/av_evidence_agent_v1/run_campaign.py",
+        "--lane",
+        "videollama",
+        ""
+      ]
+    },
+    {
+      "pid": 3250440,
+      "args": [
+        "/root/anaconda3/envs/Joint-avqa-video/bin/python",
+        "/data/cfc/code/project/AVQA-agent/experiments/av_evidence_agent_v1/worker.py",
+        "--model",
+        "videollama",
+        "--dataset",
+        "avspeaker",
+        "--phase",
+        "dev20",
+        "--gpu",
+        "3",
+        ""
+      ]
+    }
+  ],
+  "progress": {
+    "runs/avspeaker/omni/pilot/progress.json": {
+      "completed": 2,
+      "total": 2,
+      "last_qid": "30aebec7-e995-4029-bf87-3c66226fb673",
+      "last_status": "ok",
+      "updated_at": 1790923002.6402583,
+      "last_seconds": 55.625173568725586
+    },
+    "runs/avspeaker/videollama/pilot/progress.json": {
+      "completed": 2,
+      "total": 2,
+      "last_qid": "30aebec7-e995-4029-bf87-3c66226fb673",
+      "last_status": "ok",
+      "updated_at": 1790922988.6714816,
+      "last_seconds": 28.011049270629883
+    },
+    "runs/joint/videollama/pilot/progress.json": {
+      "completed": 2,
+      "total": 2,
+      "last_qid": "yv9Ts0cp4N4_task16_1",
+      "last_status": "ok",
+      "updated_at": 1790923065.3599842,
+      "last_seconds": 44.61823105812073
+    }
+  }
+}

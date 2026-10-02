@@ -1,0 +1,55 @@
+{
+  "version": "av-evidence-agent-v2-toolformat-20261002",
+  "purpose": "Training-free development experiment, not claimed paper reproduction or novel validated method",
+  "models": [
+    "Qwen2.5-Omni-7B",
+    "VideoLLaMA2.1-7B-AV"
+  ],
+  "physical_gpus": {
+    "omni": 0,
+    "videollama": 3
+  },
+  "datasets": {
+    "joint": 571,
+    "avspeaker": 642
+  },
+  "split": "Fixed 20% task-stratified SHA256 seed42 subset; development only",
+  "arms": {
+    "baseline": "Historical unchanged direct inference, re-scored on exactly selected questions with frozen common parsers",
+    "fixed": "Global observation, fixed windows centered at 1/3 and 2/3 duration, final full-media answer",
+    "agent": "Global observation chooses first center; first local observation chooses second center; final full-media answer"
+  },
+  "budget": {
+    "logical_model_calls_per_new_arm": 4,
+    "shared_global_computed_once": true,
+    "actual_new_calls_per_question_both_arms": 7,
+    "local_windows_per_arm": 2,
+    "window_seconds": 12,
+    "max_new_tokens_each_call": 256,
+    "evidence_chars_per_call": 1600
+  },
+  "generation": {
+    "do_sample": false,
+    "repetition_penalty": 1.0,
+    "num_beams": 1,
+    "seed_each_call": 42
+  },
+  "base_input_policies": {
+    "joint": "Exactly copied historical preprocessing: both BF16, at most32 uniform frames; Omni first300s continuous audio, Video 8x2s endpoint-inclusive custom sampling inside first300s",
+    "avspeaker": "Exactly copied historical native preprocessing: Omni BF16 target1fps full audio; Video FP16 native8frames and8x2s native audio sampling"
+  },
+  "local_tool": "Question-dependent or fixed12s synchronized excerpt, same dataset-specific adapter; x264 crf0 and uncompressed PCM16 MOV, no spatial crop. Model may access late audio beyond original300s prefix; additional access measured and shared budget fixed control provided.",
+  "parsers": {
+    "joint": "Frozen existing explicit-answer-v2-20261002, now prospectively fixed for new experiment; historical raw primary scores preserved",
+    "avspeaker": "Frozen upstream actual first-letter plus strict parser; no random guess"
+  },
+  "selection_access": "Input questions/options/task only, never correctness/labels/old outputs",
+  "inference_access": "Input questions/options/media/model observations only; no labels, annotation captions, subtitle files, prior predictions or task-specific reference answers",
+  "runtime_failure": "Preserve every attempt; OOM max3 attempts in a fresh worker; other errors stop lane for diagnosis",
+  "tool_failure": "Invalid/ambiguous/out-of-range SEEK falls back to corresponding fixed center, logged; never parses executable code",
+  "pilot_gate": "Two selected questions per dataset: shortest and longest; direct baseline media/token parity, same-seed repeat, functioning tool requests, final no truncation; no accuracy threshold",
+  "reporting": "Per-task counts, strict denominator, parsed-only, errors/missing, final/intermediate truncation, gained/lost questions, agent-vs-fixed and baseline paired deltas, source-cluster bootstrap95%CI, runtime/tokens/frames/audio budgets",
+  "stopping_rule": "One frozen20% run; no score-based stopping, resampling or prompt edits during run; no automatic80% or full evaluation",
+  "interpretation": "Any gain is unproven until observed; four calls are equal-call budget not exactly equal FLOPs/tokens/unique evidence. Baseline vs agent includes extra compute and prompt effects. Diagnostic and prior baseline data have been inspected; remaining80% is not pristine unseen evaluation.",
+  "repair": "Accept unambiguous SEEK number followed by punctuation/prose; reinforce localization at end of intermediate prompts. Prior v1 pilot and any partial outputs preserved; no scoring change."
+}
