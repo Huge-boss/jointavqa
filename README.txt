@@ -1,6 +1,8 @@
-当前执行版本：v2/。根目录v1因工具格式校验问题停止并保留，禁止启动根目录launch.sh或run_campaign.py。
-启动/检查使用v2/launch.sh与v2/inspect.sh；结果在v2/runs/。v2沿用根目录已冻结的子集与只读compat。
-详见v2/REPAIR.txt。
+当前新实验：v3/，三组分别为重新实测baseline、固定预算中点取证、题内证据记忆加最多一次按需回看。
+独立分支experiment/av-memory-agent-v3-20pct；配置与计时口径见v3/README.txt和protocol.json，状态以v3/inspect.sh为准。
+v2四轮版本于2026-10-02 08:26:50 UTC因用户选择更轻量协议而停止；AV-Speaker已完成Omni206题、Video247题，未据得分决定停止。
+v2_stop_record_for_v3.json记录进程和原始输出SHA；完整部分证据已复制本地v2_partial_evidence_before_v3.tar.gz，不混入v3。
+根目录v1和v2均为保留的历史版本，禁止重启其launch.sh/run_campaign.py；v2技术记录仍见v2/REPAIR.txt。
 
 免训练音画证据 Agent：首轮固定20%对照（2026-10-02）
 

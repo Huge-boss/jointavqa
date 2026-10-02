@@ -1,0 +1,102 @@
+{
+  "stopped_at_utc": "2026-10-02T08:26:50Z",
+  "reason": "User selected lightweight three-arm experiment and explicit efficiency evaluation. Superseded for protocol/cost reasons without using scores. In-flight unfinished question may be abandoned; all saved records retained.",
+  "processes": [
+    {
+      "pid": 3282318,
+      "args": [
+        "/root/anaconda3/envs/Joint-avqa/bin/python",
+        "/data/cfc/code/project/AVQA-agent/experiments/av_evidence_agent_v1/v2/run_campaign.py"
+      ]
+    },
+    {
+      "pid": 3282322,
+      "args": [
+        "/root/anaconda3/envs/Joint-avqa/bin/python",
+        "/data/cfc/code/project/AVQA-agent/experiments/av_evidence_agent_v1/v2/run_campaign.py",
+        "--lane",
+        "omni"
+      ]
+    },
+    {
+      "pid": 3282323,
+      "args": [
+        "/root/anaconda3/envs/Joint-avqa/bin/python",
+        "/data/cfc/code/project/AVQA-agent/experiments/av_evidence_agent_v1/v2/run_campaign.py",
+        "--lane",
+        "videollama"
+      ]
+    },
+    {
+      "pid": 3316557,
+      "args": [
+        "/root/anaconda3/envs/Joint-avqa/bin/python",
+        "/data/cfc/code/project/AVQA-agent/experiments/av_evidence_agent_v1/v2/worker.py",
+        "--model",
+        "omni",
+        "--dataset",
+        "avspeaker",
+        "--phase",
+        "dev20",
+        "--gpu",
+        "0"
+      ]
+    },
+    {
+      "pid": 3310661,
+      "args": [
+        "/root/anaconda3/envs/Joint-avqa-video/bin/python",
+        "/data/cfc/code/project/AVQA-agent/experiments/av_evidence_agent_v1/v2/worker.py",
+        "--model",
+        "videollama",
+        "--dataset",
+        "avspeaker",
+        "--phase",
+        "dev20",
+        "--gpu",
+        "3"
+      ]
+    }
+  ],
+  "counts": {
+    "avspeaker/omni/dev20/predictions.jsonl": {
+      "success": 206,
+      "error_attempts": 0,
+      "trailing_partial_line": false
+    },
+    "avspeaker/omni/pilot/predictions.jsonl": {
+      "success": 2,
+      "error_attempts": 0,
+      "trailing_partial_line": false
+    },
+    "avspeaker/videollama/dev20/predictions.jsonl": {
+      "success": 247,
+      "error_attempts": 0,
+      "trailing_partial_line": false
+    },
+    "avspeaker/videollama/pilot/predictions.jsonl": {
+      "success": 2,
+      "error_attempts": 0,
+      "trailing_partial_line": false
+    },
+    "joint/omni/pilot/predictions.jsonl": {
+      "success": 2,
+      "error_attempts": 0,
+      "trailing_partial_line": false
+    },
+    "joint/videollama/pilot/predictions.jsonl": {
+      "success": 2,
+      "error_attempts": 0,
+      "trailing_partial_line": false
+    }
+  },
+  "raw_sha256": {
+    "v2/runs/avspeaker/omni/dev20/predictions.jsonl": "9117a9c3222bbafee0d771a1da499ed225334ef241bcbb4b3f9f2968f641bc37",
+    "v2/runs/avspeaker/omni/pilot/predictions.jsonl": "23097385f2de48da5ecadcf383bc7cd91d080a354ed337c912cabae580d8c117",
+    "v2/runs/avspeaker/videollama/dev20/predictions.jsonl": "439823a4c7a94979122e35ee5da2ec848c4e5b8cab6238ae83257cea62eaba54",
+    "v2/runs/avspeaker/videollama/pilot/predictions.jsonl": "78c7926b0d3d5028dd9f40d3d5802da6a8d60efa400a403fb5c034a4ac076e90",
+    "v2/runs/joint/omni/pilot/predictions.jsonl": "21cb38efde3dffd801a1b423284da72e00f8955969ab70959f0a5716a15e5f89",
+    "v2/runs/joint/videollama/pilot/predictions.jsonl": "48e856201550c8d29c6d09cc22de878415a4c57d24f1455352962c05163b5197"
+  },
+  "replacement": "v3; branch experiment/av-memory-agent-v3-20pct; fixed original20% qids"
+}
