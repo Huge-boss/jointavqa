@@ -1,0 +1,24 @@
+{
+  "joint": {
+    "qids": [
+      "0nKvxr35-tQ_task6_8",
+      "yv9Ts0cp4N4_task16_1"
+    ],
+    "criterion": "shortest and longest selected input, no labels",
+    "durations": {
+      "0nKvxr35-tQ_task6_8": 5.0,
+      "yv9Ts0cp4N4_task16_1": 1742.64
+    }
+  },
+  "avspeaker": {
+    "qids": [
+      "8060c4c0-ea01-4dfd-8de1-e9ead8d40d28",
+      "30aebec7-e995-4029-bf87-3c66226fb673"
+    ],
+    "criterion": "shortest and longest selected input, no labels",
+    "durations": {
+      "8060c4c0-ea01-4dfd-8de1-e9ead8d40d28": 3.970637,
+      "30aebec7-e995-4029-bf87-3c66226fb673": 31.0
+    }
+  }
+}

@@ -1,5 +1,6 @@
-当前新实验：v3/，三组分别为重新实测baseline、固定预算中点取证、题内证据记忆加最多一次按需回看。
-独立分支experiment/av-memory-agent-v3-20pct；配置与计时口径见v3/README.txt和protocol.json，状态以v3/inspect.sh为准。
+当前新实验：v5/，三组分别为重新实测baseline、固定预算中点取证、题内证据记忆加最多一次按需回看。
+独立分支experiment/av-memory-agent-v3-20pct；配置与计时口径见v5/README.txt和protocol.json，状态以v5/inspect.sh为准。
+v3/v4仅pilot，因VideoLLaMA提前结束结构化记忆而未进入正式20%。v5在同一次生成中约束字段格式，记录模型选择；所有旧版本保留。
 v2四轮版本于2026-10-02 08:26:50 UTC因用户选择更轻量协议而停止；AV-Speaker已完成Omni206题、Video247题，未据得分决定停止。
 v2_stop_record_for_v3.json记录进程和原始输出SHA；完整部分证据已复制本地v2_partial_evidence_before_v3.tar.gz，不混入v3。
 根目录v1和v2均为保留的历史版本，禁止重启其launch.sh/run_campaign.py；v2技术记录仍见v2/REPAIR.txt。
