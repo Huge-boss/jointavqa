@@ -7,3 +7,4 @@ data/
 *.bundle
 .env*
 *_launch.json
+offline_v11_media_review/
