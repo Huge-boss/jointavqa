@@ -1,0 +1,49 @@
+{
+  "version": "source_memory_v10",
+  "purpose": "Complete integrated method development; no component ablations this round",
+  "datasets": {
+    "joint": 571,
+    "avspeaker": 642
+  },
+  "subset": "exact frozen v5 development20; remaining80 forbidden until method freeze",
+  "models": [
+    "Qwen2.5-Omni-7B",
+    "VideoLLaMA2.1-7B-AV"
+  ],
+  "physical_gpus": [
+    0,
+    1,
+    3
+  ],
+  "schedule": "all three GPUs independently load the same complete model; Omni Joint then AV, VideoLLaMA Joint then AV",
+  "pipeline": [
+    "reuse immutable native baseline call",
+    "global modality-separated observation",
+    "one missing-evidence local observation if needed and clip>12s",
+    "full-global evidence-conditioned answer",
+    "independent full-global conflict verification if changing native answer"
+  ],
+  "new_calls_max": 4,
+  "logical_calls_max_including_native": 5,
+  "token_limits": {
+    "global_observation": 208,
+    "local_observation": 112,
+    "proposal": 16,
+    "verification": 16
+  },
+  "new_generation": "greedy seed42 per call, native dtype/preprocessing; syntax-only tool observation grammar, no answer field and no constrained answer generation",
+  "local_window_seconds_max": 12,
+  "memory": "question-local source hash, true tool interval, actual audio coverage, visual/audio/link observation, explicit unknown; generated text is not fact",
+  "no_cross_question_answer_memory": true,
+  "revision": "independently proposed change accepted only when conflict verification agrees; otherwise preserve native output; malformed proposal preserves native",
+  "audio_budget": "Native global policy unchanged. Local crop may add audio evidence absent from native sparse/first300s coverage. Report as additional input, not memory-only or equal-compute gain.",
+  "scoring": "same frozen v5 parser; AV official first-letter primary plus strict secondary; all planned questions count, missing/unparsed/errors wrong",
+  "cost": "new cold application-cache work plus reused native recorded seconds; initialization and technical pilot separately; OS cache uncontrolled",
+  "technical_pilot": "existing shortest/longest + first four distinct task inputs, label-blind; native parity, observation repeat, schema>=4/6; never score threshold",
+  "selection": "all versions retained; select one whole method across both datasets and both models on aggregate development evidence and cost; no per-question oracle or seed search",
+  "novelty_status": "research hypothesis, not established novelty; inspired by VideoARM and WorldMM; future held-out and ablations required",
+  "stop": "one full round then evidence-based next-version review; no blind endless GPU occupation; OOM at most three process attempts per shard, other errors diagnosed",
+  "repair": "V7 schema failure; V8 numeric time-bin example contamination and repeated truncation observed without labels. V9 removes numeric examples from prompt, completes one sentence per field, caps40/40/24/24; all four pilots reviewed before release. Failed versions and all their cost retained. V9 pilot revealed overly narrow routing parser incorrectly treating explicit letter+explanation native outputs as unparsed. V10 uses existing frozen robust parser for control and suppresses timestamp-only notes; no correctness labels used.",
+  "control_parser": "Existing frozen label-blind joint_parser for baseline/proposal/verification, recognizes explicit answer+explanation, no change to primary scoring",
+  "memory_validation": "Timestamp-only or non-descriptive tool fields become UNKNOWN, token-capped text explicitly marked partial; original raw output retained"
+}
