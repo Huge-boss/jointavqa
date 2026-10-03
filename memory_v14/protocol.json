@@ -1,0 +1,57 @@
+{
+  "version": "visible_pair_address_v14",
+  "purpose": "Complete integrated method development; no component ablations this round",
+  "datasets": {
+    "joint": 571,
+    "avspeaker": 642
+  },
+  "subset": "exact frozen v5 development20; remaining80 forbidden until method freeze",
+  "models": [
+    "Qwen2.5-Omni-7B",
+    "VideoLLaMA2.1-7B-AV"
+  ],
+  "physical_gpus": [
+    0,
+    1,
+    3
+  ],
+  "schedule": "all three GPUs independently load the same complete model; Omni Joint then AV, VideoLLaMA Joint then AV",
+  "pipeline": [
+    "reuse immutable native answer",
+    "one marked global call: candidate, bounded evidence, visible paired address or NONE, temporal relation",
+    "agreement retains native; disagreement with justified uncapped event anchor optionally replays <=12s",
+    "isolated verifier sees original global and fresh local evidence only",
+    "revise only if free-generation verifier agrees with candidate; else native"
+  ],
+  "new_calls_max": 3,
+  "logical_calls_max_including_native": 4,
+  "token_limits": {
+    "ledger": 128,
+    "local": 96,
+    "verification": 16
+  },
+  "new_generation": "greedy seed42; candidate enum A-D followed by evidence <=48 tokens, visible paired-frame enum or NONE and relation enum; verifier free generation",
+  "local_window_seconds_max": 12,
+  "memory": "Candidate-conditioned event ledger used only for proposal and window choice. Verifier receives no candidate/proposal ledger. Valid index is not verified factual localization.",
+  "no_cross_question_answer_memory": true,
+  "revision": "Agreement retains native. Disagreement requires separate evidence compartment verification. Unreadable/truncated proposal or unconfirmed revision retains native.",
+  "audio_budget": "Native global policy unchanged. Local crop may add audio evidence absent from native sparse/first300s coverage. Report as additional input, not memory-only or equal-compute gain.",
+  "scoring": "same frozen v5 parser; AV official first-letter primary plus strict secondary; all planned questions count, missing/unparsed/errors wrong",
+  "cost": "new cold application-cache work plus reused native recorded seconds; initialization and technical pilot separately; OS cache uncontrolled",
+  "technical_pilot": "Same24 after all four address reads pass: native text/media/token parity, repeated proposal, outside-box equality, source mapping/audio/cache isolation, budgets; no QA accuracy gate.",
+  "selection": "One unified method across all four groups; complete whole round before next decision, retain all versions.",
+  "novelty_status": "Hypothesis only: evidence-addressed bounded acquisition plus isolated verification, no established novelty or generalization gain.",
+  "stop": "one full round then evidence-based next-version review; no blind endless GPU occupation; OOM at most three process attempts per shard, other errors diagnosed",
+  "repair": "Independent candidate after V13 replay visual/source-clock review; no accuracy-based interface selection.",
+  "control_parser": "Frozen joint_parser for native and free verifier; candidate syntax-constrained A-D, separate from unchanged formal scorer",
+  "memory_validation": "Uncapped descriptive evidence, visible valid non-GLOBAL pair, clip>12.001s and pair source-time span<=12s; no unknown-gap fallback.",
+  "initial_prompt_metadata": "Visible paired address codes; no dense source-second table. Initial pixels changed; native/local/verifier remain unmarked.",
+  "marker": {
+    "font_path": "/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf",
+    "font_sha256": "f8aa70b5d4210d77624f5b5b5cf094fadf9fd019caf5b528fa5af42fc4ac43a5",
+    "encoding": "two adjacent input frames share Pxx",
+    "max_area_fraction": 0.04
+  },
+  "address_probe": "Fixed first technical-pilot clip per group, middle marked pair repeated to native frame count; free readout <=16 tokens without expected code in prompt. All four exact readings required. Synthetic OCR only, no QA labels or score. Failure stops this version.",
+  "pixel_change": "Initial prepared video copy receives black/white top-left marker. Same shapes/frame indices/audio, not same pixels or equal-media baseline."
+}
