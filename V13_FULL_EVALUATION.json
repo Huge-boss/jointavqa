@@ -1,0 +1,993 @@
+{
+  "status": "complete_audited",
+  "archive_sha256": "1f28604e4b8fa77e1be76ee0d861cc24c292c5f8021302ba50041fe2eeb59983",
+  "manifest_sha256": "118067fc02501a33d53d020ec4870e087a6cd242d2a6480a1dc2837f6db15944",
+  "aggregate": {
+    "dev20": {
+      "complete": true,
+      "planned": 2426,
+      "observed": 2426,
+      "agent_correct": 1092,
+      "baseline_correct": 1058,
+      "macro_delta_pp": 1.4159860549617846,
+      "per_model_net": {
+        "omni": 26,
+        "videollama": 8
+      }
+    },
+    "remaining80": {
+      "complete": true,
+      "planned": 9704,
+      "observed": 9704,
+      "agent_correct": 4440,
+      "baseline_correct": 4421,
+      "macro_delta_pp": 0.20201236542455447,
+      "per_model_net": {
+        "omni": 17,
+        "videollama": 2
+      }
+    },
+    "full": {
+      "complete": true,
+      "planned": 12130,
+      "observed": 12130,
+      "agent_correct": 5532,
+      "baseline_correct": 5479,
+      "macro_delta_pp": 0.4448355470351064,
+      "per_model_net": {
+        "omni": 43,
+        "videollama": 10
+      }
+    }
+  },
+  "cost": {
+    "dev20": {
+      "incremental_work_seconds": 10460.056956854824,
+      "historical_native_work_seconds": 6579.131209611893,
+      "logical_total_work_seconds": 17039.188166466716,
+      "executed_calls": 3029,
+      "reviews": 7,
+      "final_call_truncations": 0,
+      "intermediate_truncations": 0,
+      "unparsed": 0,
+      "new_eval_model_load_seconds": 0,
+      "evidence_field_caps": 173,
+      "wrong_to_right": 71,
+      "right_to_wrong": 37
+    },
+    "remaining80": {
+      "incremental_work_seconds": 41121.05524652178,
+      "historical_native_work_seconds": 25781.778217554092,
+      "logical_total_work_seconds": 66902.83346407587,
+      "executed_calls": 12035,
+      "reviews": 21,
+      "final_call_truncations": 1,
+      "intermediate_truncations": 2,
+      "unparsed": 1,
+      "new_eval_model_load_seconds": 168.84518394694896,
+      "evidence_field_caps": 739,
+      "wrong_to_right": 235,
+      "right_to_wrong": 216
+    },
+    "full": {
+      "incremental_work_seconds": 51581.1122033766,
+      "historical_native_work_seconds": 32360.909427165985,
+      "logical_total_work_seconds": 83942.02163054259,
+      "executed_calls": 15064,
+      "reviews": 28,
+      "final_call_truncations": 1,
+      "intermediate_truncations": 2,
+      "unparsed": 1,
+      "new_eval_model_load_seconds": 168.84518394694896,
+      "evidence_field_caps": 912,
+      "wrong_to_right": 306,
+      "right_to_wrong": 253
+    }
+  },
+  "table": [
+    {
+      "dataset": "joint",
+      "model": "omni",
+      "scope": "dev20",
+      "method": "frozen_event_ledger_v13",
+      "planned": 571,
+      "observed": 571,
+      "complete": true,
+      "correct": 316,
+      "accuracy_pct": 55.3415061295972,
+      "baseline_correct": 303,
+      "baseline_accuracy_pct": 53.06479859894921,
+      "missing": 0,
+      "errors": 0,
+      "unparsed": 0,
+      "strict_correct": 316,
+      "baseline_strict_correct": 303,
+      "strict_unparsed": 0,
+      "mean_seconds": 10.047987540567092,
+      "p95_seconds": 17.142064481056877,
+      "incremental_mean_seconds": 5.840859213285923,
+      "incremental_p95_seconds": 10.067823627017788,
+      "incremental_work_seconds": 3335.130610786262,
+      "historical_native_work_seconds": 2402.270274877548,
+      "logical_total_work_seconds": 5737.40088566381,
+      "new_eval_model_load_seconds": 0,
+      "executed_calls": 653,
+      "mean_logical_calls": 2.1436077057793343,
+      "reviews": 3,
+      "decisions": {
+        "agreement": 492,
+        "verified_revision": 29,
+        "unconfirmed_revision_keep_native": 50
+      },
+      "final_call_truncations": 0,
+      "intermediate_truncations": 0,
+      "field_caps": {
+        "EVIDENCE": 43
+      },
+      "preparation_seconds": 640.4419049776916,
+      "crop_seconds": 1.8684617349936161,
+      "generated_tokens": 24226,
+      "labels_sha256": "43d1b0c8167a2474f54b786346bc4f78d5a442c28c12b8b6032f90290995212e",
+      "timing_note": "Dev20 and native are historical epochs; new complement includes cold application cache/CPU/IO. No same-epoch speedup claim; initialization separately."
+    },
+    {
+      "dataset": "joint",
+      "model": "omni",
+      "scope": "remaining80",
+      "method": "frozen_event_ledger_v13",
+      "planned": 2282,
+      "observed": 2282,
+      "complete": true,
+      "correct": 1254,
+      "accuracy_pct": 54.95179666958808,
+      "baseline_correct": 1241,
+      "baseline_accuracy_pct": 54.38212094653812,
+      "missing": 0,
+      "errors": 0,
+      "unparsed": 1,
+      "strict_correct": 1254,
+      "baseline_strict_correct": 1241,
+      "strict_unparsed": 1,
+      "mean_seconds": 9.823001084829878,
+      "p95_seconds": 17.60041934424953,
+      "incremental_mean_seconds": 5.683567179021093,
+      "incremental_p95_seconds": 10.049359177691803,
+      "incremental_work_seconds": 12969.900302526134,
+      "historical_native_work_seconds": 9446.188173055649,
+      "logical_total_work_seconds": 22416.088475581782,
+      "new_eval_model_load_seconds": 28.562752630969044,
+      "executed_calls": 2581,
+      "mean_logical_calls": 2.13102541630149,
+      "reviews": 4,
+      "decisions": {
+        "agreement": 1987,
+        "verified_revision": 136,
+        "unconfirmed_revision_keep_native": 159
+      },
+      "final_call_truncations": 1,
+      "intermediate_truncations": 0,
+      "field_caps": {
+        "EVIDENCE": 172
+      },
+      "preparation_seconds": 2470.4797515374667,
+      "crop_seconds": 2.448906491015805,
+      "generated_tokens": 95481,
+      "labels_sha256": "43d1b0c8167a2474f54b786346bc4f78d5a442c28c12b8b6032f90290995212e",
+      "timing_note": "Dev20 and native are historical epochs; new complement includes cold application cache/CPU/IO. No same-epoch speedup claim; initialization separately."
+    },
+    {
+      "dataset": "joint",
+      "model": "omni",
+      "scope": "full",
+      "method": "frozen_event_ledger_v13",
+      "planned": 2853,
+      "observed": 2853,
+      "complete": true,
+      "correct": 1570,
+      "accuracy_pct": 55.029793200140205,
+      "baseline_correct": 1544,
+      "baseline_accuracy_pct": 54.11847178408693,
+      "missing": 0,
+      "errors": 0,
+      "unparsed": 1,
+      "strict_correct": 1570,
+      "baseline_strict_correct": 1544,
+      "strict_unparsed": 1,
+      "mean_seconds": 9.868029919819696,
+      "p95_seconds": 17.55831949199783,
+      "incremental_mean_seconds": 5.715047638735505,
+      "incremental_p95_seconds": 10.050123413401888,
+      "incremental_work_seconds": 16305.030913312396,
+      "historical_native_work_seconds": 11848.458447933197,
+      "logical_total_work_seconds": 28153.489361245593,
+      "new_eval_model_load_seconds": 28.562752630969044,
+      "executed_calls": 3234,
+      "mean_logical_calls": 2.1335436382754995,
+      "reviews": 7,
+      "decisions": {
+        "agreement": 2479,
+        "verified_revision": 165,
+        "unconfirmed_revision_keep_native": 209
+      },
+      "final_call_truncations": 1,
+      "intermediate_truncations": 0,
+      "field_caps": {
+        "EVIDENCE": 215
+      },
+      "preparation_seconds": 3110.9216565151582,
+      "crop_seconds": 4.317368226009421,
+      "generated_tokens": 119707,
+      "labels_sha256": "43d1b0c8167a2474f54b786346bc4f78d5a442c28c12b8b6032f90290995212e",
+      "timing_note": "Dev20 and native are historical epochs; new complement includes cold application cache/CPU/IO. No same-epoch speedup claim; initialization separately."
+    },
+    {
+      "dataset": "joint",
+      "model": "videollama",
+      "scope": "dev20",
+      "method": "frozen_event_ledger_v13",
+      "planned": 571,
+      "observed": 571,
+      "complete": true,
+      "correct": 265,
+      "accuracy_pct": 46.40980735551664,
+      "baseline_correct": 259,
+      "baseline_accuracy_pct": 45.359019264448335,
+      "missing": 0,
+      "errors": 0,
+      "unparsed": 0,
+      "strict_correct": 265,
+      "baseline_strict_correct": 259,
+      "strict_unparsed": 0,
+      "mean_seconds": 7.7031361624352215,
+      "p95_seconds": 11.655173154576914,
+      "incremental_mean_seconds": 4.822411078056924,
+      "incremental_p95_seconds": 7.506939814003999,
+      "incremental_work_seconds": 2753.5967255705036,
+      "historical_native_work_seconds": 1644.894023180008,
+      "logical_total_work_seconds": 4398.490748750512,
+      "new_eval_model_load_seconds": 0,
+      "executed_calls": 750,
+      "mean_logical_calls": 2.3134851138353767,
+      "reviews": 0,
+      "decisions": {
+        "agreement": 392,
+        "unconfirmed_revision_keep_native": 154,
+        "verified_revision": 25
+      },
+      "final_call_truncations": 0,
+      "intermediate_truncations": 0,
+      "field_caps": {
+        "EVIDENCE": 68
+      },
+      "preparation_seconds": 615.8803972860333,
+      "crop_seconds": 0,
+      "generated_tokens": 21720,
+      "labels_sha256": "43d1b0c8167a2474f54b786346bc4f78d5a442c28c12b8b6032f90290995212e",
+      "timing_note": "Dev20 and native are historical epochs; new complement includes cold application cache/CPU/IO. No same-epoch speedup claim; initialization separately."
+    },
+    {
+      "dataset": "joint",
+      "model": "videollama",
+      "scope": "remaining80",
+      "method": "frozen_event_ledger_v13",
+      "planned": 2282,
+      "observed": 2282,
+      "complete": true,
+      "correct": 1057,
+      "accuracy_pct": 46.31901840490798,
+      "baseline_correct": 1056,
+      "baseline_accuracy_pct": 46.275197195442594,
+      "missing": 0,
+      "errors": 0,
+      "unparsed": 0,
+      "strict_correct": 1057,
+      "baseline_strict_correct": 1056,
+      "strict_unparsed": 0,
+      "mean_seconds": 7.577125987723091,
+      "p95_seconds": 11.687327611850924,
+      "incremental_mean_seconds": 4.74425187006073,
+      "incremental_p95_seconds": 7.487162132025693,
+      "incremental_work_seconds": 10826.382767478586,
+      "historical_native_work_seconds": 6464.618736505508,
+      "logical_total_work_seconds": 17291.001503984095,
+      "new_eval_model_load_seconds": 44.877687805041205,
+      "executed_calls": 2949,
+      "mean_logical_calls": 2.2922874671340927,
+      "reviews": 8,
+      "decisions": {
+        "agreement": 1623,
+        "unconfirmed_revision_keep_native": 577,
+        "verified_revision": 82
+      },
+      "final_call_truncations": 0,
+      "intermediate_truncations": 2,
+      "field_caps": {
+        "EVIDENCE": 254
+      },
+      "preparation_seconds": 2389.946857865434,
+      "crop_seconds": 4.743490953929722,
+      "generated_tokens": 87594,
+      "labels_sha256": "43d1b0c8167a2474f54b786346bc4f78d5a442c28c12b8b6032f90290995212e",
+      "timing_note": "Dev20 and native are historical epochs; new complement includes cold application cache/CPU/IO. No same-epoch speedup claim; initialization separately."
+    },
+    {
+      "dataset": "joint",
+      "model": "videollama",
+      "scope": "full",
+      "method": "frozen_event_ledger_v13",
+      "planned": 2853,
+      "observed": 2853,
+      "complete": true,
+      "correct": 1322,
+      "accuracy_pct": 46.33718892393971,
+      "baseline_correct": 1315,
+      "baseline_accuracy_pct": 46.09183315807921,
+      "missing": 0,
+      "errors": 0,
+      "unparsed": 0,
+      "strict_correct": 1322,
+      "baseline_strict_correct": 1315,
+      "strict_unparsed": 0,
+      "mean_seconds": 7.602345689707188,
+      "p95_seconds": 11.680746695643757,
+      "incremental_mean_seconds": 4.759894669838447,
+      "incremental_p95_seconds": 7.502418209810275,
+      "incremental_work_seconds": 13579.97949304909,
+      "historical_native_work_seconds": 8109.512759685516,
+      "logical_total_work_seconds": 21689.492252734606,
+      "new_eval_model_load_seconds": 44.877687805041205,
+      "executed_calls": 3699,
+      "mean_logical_calls": 2.2965299684542586,
+      "reviews": 8,
+      "decisions": {
+        "agreement": 2015,
+        "unconfirmed_revision_keep_native": 731,
+        "verified_revision": 107
+      },
+      "final_call_truncations": 0,
+      "intermediate_truncations": 2,
+      "field_caps": {
+        "EVIDENCE": 322
+      },
+      "preparation_seconds": 3005.8272551514674,
+      "crop_seconds": 4.743490953929722,
+      "generated_tokens": 109314,
+      "labels_sha256": "43d1b0c8167a2474f54b786346bc4f78d5a442c28c12b8b6032f90290995212e",
+      "timing_note": "Dev20 and native are historical epochs; new complement includes cold application cache/CPU/IO. No same-epoch speedup claim; initialization separately."
+    },
+    {
+      "dataset": "avspeaker",
+      "model": "omni",
+      "scope": "dev20",
+      "method": "frozen_event_ledger_v13",
+      "planned": 642,
+      "observed": 642,
+      "complete": true,
+      "correct": 271,
+      "accuracy_pct": 42.21183800623053,
+      "baseline_correct": 258,
+      "baseline_accuracy_pct": 40.18691588785047,
+      "missing": 0,
+      "errors": 0,
+      "unparsed": 0,
+      "strict_correct": 271,
+      "baseline_strict_correct": 258,
+      "strict_unparsed": 0,
+      "mean_seconds": 5.840768062778421,
+      "p95_seconds": 10.11765576751495,
+      "incremental_mean_seconds": 3.454178440949326,
+      "incremental_p95_seconds": 5.873592146854202,
+      "incremental_work_seconds": 2217.5825590894674,
+      "historical_native_work_seconds": 1532.1905372142792,
+      "logical_total_work_seconds": 3749.7730963037466,
+      "new_eval_model_load_seconds": 0,
+      "executed_calls": 736,
+      "mean_logical_calls": 2.146417445482866,
+      "reviews": 4,
+      "decisions": {
+        "verified_revision": 41,
+        "agreement": 552,
+        "unconfirmed_revision_keep_native": 49
+      },
+      "final_call_truncations": 0,
+      "intermediate_truncations": 0,
+      "field_caps": {
+        "EVIDENCE": 6
+      },
+      "preparation_seconds": 444.31427325782715,
+      "crop_seconds": 2.867202096967958,
+      "generated_tokens": 23643,
+      "labels_sha256": "9ee11633f2bb18cf65e8afe8f04a59de8fc82134652df11a08e5974de19958a7",
+      "timing_note": "Dev20 and native are historical epochs; new complement includes cold application cache/CPU/IO. No same-epoch speedup claim; initialization separately."
+    },
+    {
+      "dataset": "avspeaker",
+      "model": "omni",
+      "scope": "remaining80",
+      "method": "frozen_event_ledger_v13",
+      "planned": 2570,
+      "observed": 2570,
+      "complete": true,
+      "correct": 1147,
+      "accuracy_pct": 44.63035019455253,
+      "baseline_correct": 1143,
+      "baseline_accuracy_pct": 44.474708171206224,
+      "missing": 0,
+      "errors": 0,
+      "unparsed": 0,
+      "strict_correct": 1147,
+      "baseline_strict_correct": 1143,
+      "strict_unparsed": 0,
+      "mean_seconds": 5.730424670714877,
+      "p95_seconds": 10.10726519220334,
+      "incremental_mean_seconds": 3.411127562231655,
+      "incremental_p95_seconds": 5.853115290365525,
+      "incremental_work_seconds": 8766.597834935354,
+      "historical_native_work_seconds": 5960.59356880188,
+      "logical_total_work_seconds": 14727.191403737233,
+      "new_eval_model_load_seconds": 27.079813727003057,
+      "executed_calls": 2967,
+      "mean_logical_calls": 2.154474708171206,
+      "reviews": 9,
+      "decisions": {
+        "agreement": 2182,
+        "verified_revision": 187,
+        "unconfirmed_revision_keep_native": 201
+      },
+      "final_call_truncations": 0,
+      "intermediate_truncations": 0,
+      "field_caps": {
+        "EVIDENCE": 23
+      },
+      "preparation_seconds": 1703.8255432444857,
+      "crop_seconds": 8.304215603042394,
+      "generated_tokens": 95300,
+      "labels_sha256": "9ee11633f2bb18cf65e8afe8f04a59de8fc82134652df11a08e5974de19958a7",
+      "timing_note": "Dev20 and native are historical epochs; new complement includes cold application cache/CPU/IO. No same-epoch speedup claim; initialization separately."
+    },
+    {
+      "dataset": "avspeaker",
+      "model": "omni",
+      "scope": "full",
+      "method": "frozen_event_ledger_v13",
+      "planned": 3212,
+      "observed": 3212,
+      "complete": true,
+      "correct": 1418,
+      "accuracy_pct": 44.14694894146949,
+      "baseline_correct": 1401,
+      "baseline_accuracy_pct": 43.61768368617684,
+      "missing": 0,
+      "errors": 0,
+      "unparsed": 0,
+      "strict_correct": 1418,
+      "baseline_strict_correct": 1401,
+      "strict_unparsed": 0,
+      "mean_seconds": 5.752479607733805,
+      "p95_seconds": 10.113044216149136,
+      "incremental_mean_seconds": 3.4197323767200563,
+      "incremental_p95_seconds": 5.864438073794007,
+      "incremental_work_seconds": 10984.180394024821,
+      "historical_native_work_seconds": 7492.784106016159,
+      "logical_total_work_seconds": 18476.96450004098,
+      "new_eval_model_load_seconds": 27.079813727003057,
+      "executed_calls": 3703,
+      "mean_logical_calls": 2.1528642590286426,
+      "reviews": 13,
+      "decisions": {
+        "verified_revision": 228,
+        "agreement": 2734,
+        "unconfirmed_revision_keep_native": 250
+      },
+      "final_call_truncations": 0,
+      "intermediate_truncations": 0,
+      "field_caps": {
+        "EVIDENCE": 29
+      },
+      "preparation_seconds": 2148.139816502313,
+      "crop_seconds": 11.171417700010352,
+      "generated_tokens": 118943,
+      "labels_sha256": "9ee11633f2bb18cf65e8afe8f04a59de8fc82134652df11a08e5974de19958a7",
+      "timing_note": "Dev20 and native are historical epochs; new complement includes cold application cache/CPU/IO. No same-epoch speedup claim; initialization separately."
+    },
+    {
+      "dataset": "avspeaker",
+      "model": "videollama",
+      "scope": "dev20",
+      "method": "frozen_event_ledger_v13",
+      "planned": 642,
+      "observed": 642,
+      "complete": true,
+      "correct": 240,
+      "accuracy_pct": 37.38317757009346,
+      "baseline_correct": 238,
+      "baseline_accuracy_pct": 37.07165109034268,
+      "missing": 0,
+      "errors": 0,
+      "unparsed": 0,
+      "strict_correct": 240,
+      "baseline_strict_correct": 238,
+      "strict_unparsed": 0,
+      "mean_seconds": 4.912030273751788,
+      "p95_seconds": 7.260363442922236,
+      "incremental_mean_seconds": 3.354746201571013,
+      "incremental_p95_seconds": 4.9012708326976275,
+      "incremental_work_seconds": 2153.7470614085905,
+      "historical_native_work_seconds": 999.7763743400574,
+      "logical_total_work_seconds": 3153.523435748648,
+      "new_eval_model_load_seconds": 0,
+      "executed_calls": 890,
+      "mean_logical_calls": 2.3862928348909658,
+      "reviews": 0,
+      "decisions": {
+        "unconfirmed_revision_keep_native": 167,
+        "agreement": 394,
+        "verified_revision": 81
+      },
+      "final_call_truncations": 0,
+      "intermediate_truncations": 0,
+      "field_caps": {
+        "EVIDENCE": 56
+      },
+      "preparation_seconds": 448.1308650136925,
+      "crop_seconds": 0,
+      "generated_tokens": 24475,
+      "labels_sha256": "9ee11633f2bb18cf65e8afe8f04a59de8fc82134652df11a08e5974de19958a7",
+      "timing_note": "Dev20 and native are historical epochs; new complement includes cold application cache/CPU/IO. No same-epoch speedup claim; initialization separately."
+    },
+    {
+      "dataset": "avspeaker",
+      "model": "videollama",
+      "scope": "remaining80",
+      "method": "frozen_event_ledger_v13",
+      "planned": 2570,
+      "observed": 2570,
+      "complete": true,
+      "correct": 982,
+      "accuracy_pct": 38.21011673151751,
+      "baseline_correct": 981,
+      "baseline_accuracy_pct": 38.17120622568093,
+      "missing": 0,
+      "errors": 0,
+      "unparsed": 0,
+      "strict_correct": 982,
+      "baseline_strict_correct": 981,
+      "strict_unparsed": 0,
+      "mean_seconds": 4.851576685125587,
+      "p95_seconds": 7.045962332835187,
+      "incremental_mean_seconds": 3.330028926685488,
+      "incremental_p95_seconds": 4.917532664447207,
+      "incremental_work_seconds": 8558.174341581704,
+      "historical_native_work_seconds": 3910.3777391910553,
+      "logical_total_work_seconds": 12468.552080772759,
+      "new_eval_model_load_seconds": 68.32492978393566,
+      "executed_calls": 3538,
+      "mean_logical_calls": 2.3766536964980545,
+      "reviews": 0,
+      "decisions": {
+        "agreement": 1602,
+        "unconfirmed_revision_keep_native": 687,
+        "verified_revision": 281
+      },
+      "final_call_truncations": 0,
+      "intermediate_truncations": 0,
+      "field_caps": {
+        "EVIDENCE": 290
+      },
+      "preparation_seconds": 1688.8120596575318,
+      "crop_seconds": 0,
+      "generated_tokens": 99804,
+      "labels_sha256": "9ee11633f2bb18cf65e8afe8f04a59de8fc82134652df11a08e5974de19958a7",
+      "timing_note": "Dev20 and native are historical epochs; new complement includes cold application cache/CPU/IO. No same-epoch speedup claim; initialization separately."
+    },
+    {
+      "dataset": "avspeaker",
+      "model": "videollama",
+      "scope": "full",
+      "method": "frozen_event_ledger_v13",
+      "planned": 3212,
+      "observed": 3212,
+      "complete": true,
+      "correct": 1222,
+      "accuracy_pct": 38.04483188044832,
+      "baseline_correct": 1219,
+      "baseline_accuracy_pct": 37.95143212951432,
+      "missing": 0,
+      "errors": 0,
+      "unparsed": 0,
+      "strict_correct": 1222,
+      "baseline_strict_correct": 1219,
+      "strict_unparsed": 0,
+      "mean_seconds": 4.863659874384,
+      "p95_seconds": 7.071767170414386,
+      "incremental_mean_seconds": 3.3349693035461687,
+      "incremental_p95_seconds": 4.915004484201199,
+      "incremental_work_seconds": 10711.921402990294,
+      "historical_native_work_seconds": 4910.154113531113,
+      "logical_total_work_seconds": 15622.075516521407,
+      "new_eval_model_load_seconds": 68.32492978393566,
+      "executed_calls": 4428,
+      "mean_logical_calls": 2.3785803237858034,
+      "reviews": 0,
+      "decisions": {
+        "unconfirmed_revision_keep_native": 854,
+        "agreement": 1996,
+        "verified_revision": 362
+      },
+      "final_call_truncations": 0,
+      "intermediate_truncations": 0,
+      "field_caps": {
+        "EVIDENCE": 346
+      },
+      "preparation_seconds": 2136.9429246712243,
+      "crop_seconds": 0,
+      "generated_tokens": 124279,
+      "labels_sha256": "9ee11633f2bb18cf65e8afe8f04a59de8fc82134652df11a08e5974de19958a7",
+      "timing_note": "Dev20 and native are historical epochs; new complement includes cold application cache/CPU/IO. No same-epoch speedup claim; initialization separately."
+    }
+  ],
+  "comparisons": {
+    "joint/omni/dev20": {
+      "complete": true,
+      "planned": 571,
+      "observed": 571,
+      "comparison": {
+        "n": 571,
+        "wrong_to_right": 15,
+        "right_to_wrong": 2,
+        "net_correct": 13,
+        "delta_pp": 2.276707530647986,
+        "cluster_bootstrap_95pct_pp": [
+          1.0046111943572889,
+          3.633296634161686
+        ],
+        "clusters": 99
+      },
+      "secondary_strict": {
+        "n": 571,
+        "wrong_to_right": 15,
+        "right_to_wrong": 2,
+        "net_correct": 13,
+        "delta_pp": 2.276707530647986,
+        "cluster_bootstrap_95pct_pp": [
+          1.0046111943572889,
+          3.633296634161686
+        ],
+        "clusters": 99
+      }
+    },
+    "joint/omni/remaining80": {
+      "complete": true,
+      "planned": 2282,
+      "observed": 2282,
+      "comparison": {
+        "n": 2282,
+        "wrong_to_right": 51,
+        "right_to_wrong": 38,
+        "net_correct": 13,
+        "delta_pp": 0.5696757230499562,
+        "cluster_bootstrap_95pct_pp": [
+          -0.29886425779947445,
+          1.4155451980829736
+        ],
+        "clusters": 103
+      },
+      "secondary_strict": {
+        "n": 2282,
+        "wrong_to_right": 51,
+        "right_to_wrong": 38,
+        "net_correct": 13,
+        "delta_pp": 0.5696757230499562,
+        "cluster_bootstrap_95pct_pp": [
+          -0.29886425779947445,
+          1.4155451980829736
+        ],
+        "clusters": 103
+      }
+    },
+    "joint/omni/full": {
+      "complete": true,
+      "planned": 2853,
+      "observed": 2853,
+      "comparison": {
+        "n": 2853,
+        "wrong_to_right": 66,
+        "right_to_wrong": 40,
+        "net_correct": 26,
+        "delta_pp": 0.9113214160532772,
+        "cluster_bootstrap_95pct_pp": [
+          0.14024833876426718,
+          1.6844574188975368
+        ],
+        "clusters": 103
+      },
+      "secondary_strict": {
+        "n": 2853,
+        "wrong_to_right": 66,
+        "right_to_wrong": 40,
+        "net_correct": 26,
+        "delta_pp": 0.9113214160532772,
+        "cluster_bootstrap_95pct_pp": [
+          0.14024833876426718,
+          1.6844574188975368
+        ],
+        "clusters": 103
+      }
+    },
+    "joint/videollama/dev20": {
+      "complete": true,
+      "planned": 571,
+      "observed": 571,
+      "comparison": {
+        "n": 571,
+        "wrong_to_right": 11,
+        "right_to_wrong": 5,
+        "net_correct": 6,
+        "delta_pp": 1.0507880910683012,
+        "cluster_bootstrap_95pct_pp": [
+          -0.3565702435699267,
+          2.5597269624573378
+        ],
+        "clusters": 99
+      },
+      "secondary_strict": {
+        "n": 571,
+        "wrong_to_right": 11,
+        "right_to_wrong": 5,
+        "net_correct": 6,
+        "delta_pp": 1.0507880910683012,
+        "cluster_bootstrap_95pct_pp": [
+          -0.3565702435699267,
+          2.5597269624573378
+        ],
+        "clusters": 99
+      }
+    },
+    "joint/videollama/remaining80": {
+      "complete": true,
+      "planned": 2282,
+      "observed": 2282,
+      "comparison": {
+        "n": 2282,
+        "wrong_to_right": 31,
+        "right_to_wrong": 30,
+        "net_correct": 1,
+        "delta_pp": 0.04382120946538125,
+        "cluster_bootstrap_95pct_pp": [
+          -0.634273359785403,
+          0.691817417421476
+        ],
+        "clusters": 103
+      },
+      "secondary_strict": {
+        "n": 2282,
+        "wrong_to_right": 31,
+        "right_to_wrong": 30,
+        "net_correct": 1,
+        "delta_pp": 0.04382120946538125,
+        "cluster_bootstrap_95pct_pp": [
+          -0.634273359785403,
+          0.691817417421476
+        ],
+        "clusters": 103
+      }
+    },
+    "joint/videollama/full": {
+      "complete": true,
+      "planned": 2853,
+      "observed": 2853,
+      "comparison": {
+        "n": 2853,
+        "wrong_to_right": 42,
+        "right_to_wrong": 35,
+        "net_correct": 7,
+        "delta_pp": 0.24535576586049773,
+        "cluster_bootstrap_95pct_pp": [
+          -0.3313318450151329,
+          0.8037619614143391
+        ],
+        "clusters": 103
+      },
+      "secondary_strict": {
+        "n": 2853,
+        "wrong_to_right": 42,
+        "right_to_wrong": 35,
+        "net_correct": 7,
+        "delta_pp": 0.24535576586049773,
+        "cluster_bootstrap_95pct_pp": [
+          -0.3313318450151329,
+          0.8037619614143391
+        ],
+        "clusters": 103
+      }
+    },
+    "avspeaker/omni/dev20": {
+      "complete": true,
+      "planned": 642,
+      "observed": 642,
+      "comparison": {
+        "n": 642,
+        "wrong_to_right": 22,
+        "right_to_wrong": 9,
+        "net_correct": 13,
+        "delta_pp": 2.0249221183800623,
+        "cluster_bootstrap_95pct_pp": [
+          0.3105590062111801,
+          3.791667266886586
+        ],
+        "clusters": 413
+      },
+      "secondary_strict": {
+        "n": 642,
+        "wrong_to_right": 22,
+        "right_to_wrong": 9,
+        "net_correct": 13,
+        "delta_pp": 2.0249221183800623,
+        "cluster_bootstrap_95pct_pp": [
+          0.3105590062111801,
+          3.791667266886586
+        ],
+        "clusters": 413
+      }
+    },
+    "avspeaker/omni/remaining80": {
+      "complete": true,
+      "planned": 2570,
+      "observed": 2570,
+      "comparison": {
+        "n": 2570,
+        "wrong_to_right": 60,
+        "right_to_wrong": 56,
+        "net_correct": 4,
+        "delta_pp": 0.1556420233463035,
+        "cluster_bootstrap_95pct_pp": [
+          -0.6029158830310016,
+          0.9304395464014779
+        ],
+        "clusters": 883
+      },
+      "secondary_strict": {
+        "n": 2570,
+        "wrong_to_right": 60,
+        "right_to_wrong": 56,
+        "net_correct": 4,
+        "delta_pp": 0.1556420233463035,
+        "cluster_bootstrap_95pct_pp": [
+          -0.6029158830310016,
+          0.9304395464014779
+        ],
+        "clusters": 883
+      }
+    },
+    "avspeaker/omni/full": {
+      "complete": true,
+      "planned": 3212,
+      "observed": 3212,
+      "comparison": {
+        "n": 3212,
+        "wrong_to_right": 82,
+        "right_to_wrong": 65,
+        "net_correct": 17,
+        "delta_pp": 0.5292652552926526,
+        "cluster_bootstrap_95pct_pp": [
+          -0.15582151456448295,
+          1.2144771400836354
+        ],
+        "clusters": 961
+      },
+      "secondary_strict": {
+        "n": 3212,
+        "wrong_to_right": 82,
+        "right_to_wrong": 65,
+        "net_correct": 17,
+        "delta_pp": 0.5292652552926526,
+        "cluster_bootstrap_95pct_pp": [
+          -0.15582151456448295,
+          1.2144771400836354
+        ],
+        "clusters": 961
+      }
+    },
+    "avspeaker/videollama/dev20": {
+      "complete": true,
+      "planned": 642,
+      "observed": 642,
+      "comparison": {
+        "n": 642,
+        "wrong_to_right": 23,
+        "right_to_wrong": 21,
+        "net_correct": 2,
+        "delta_pp": 0.3115264797507788,
+        "cluster_bootstrap_95pct_pp": [
+          -1.7135967414037705,
+          2.3772734133272957
+        ],
+        "clusters": 413
+      },
+      "secondary_strict": {
+        "n": 642,
+        "wrong_to_right": 23,
+        "right_to_wrong": 21,
+        "net_correct": 2,
+        "delta_pp": 0.3115264797507788,
+        "cluster_bootstrap_95pct_pp": [
+          -1.7135967414037705,
+          2.3772734133272957
+        ],
+        "clusters": 413
+      }
+    },
+    "avspeaker/videollama/remaining80": {
+      "complete": true,
+      "planned": 2570,
+      "observed": 2570,
+      "comparison": {
+        "n": 2570,
+        "wrong_to_right": 93,
+        "right_to_wrong": 92,
+        "net_correct": 1,
+        "delta_pp": 0.038910505836575876,
+        "cluster_bootstrap_95pct_pp": [
+          -0.947777795087141,
+          1.0491678270671694
+        ],
+        "clusters": 883
+      },
+      "secondary_strict": {
+        "n": 2570,
+        "wrong_to_right": 93,
+        "right_to_wrong": 92,
+        "net_correct": 1,
+        "delta_pp": 0.038910505836575876,
+        "cluster_bootstrap_95pct_pp": [
+          -0.947777795087141,
+          1.0491678270671694
+        ],
+        "clusters": 883
+      }
+    },
+    "avspeaker/videollama/full": {
+      "complete": true,
+      "planned": 3212,
+      "observed": 3212,
+      "comparison": {
+        "n": 3212,
+        "wrong_to_right": 116,
+        "right_to_wrong": 113,
+        "net_correct": 3,
+        "delta_pp": 0.09339975093399751,
+        "cluster_bootstrap_95pct_pp": [
+          -0.7984367732826125,
+          1.0339606138540216
+        ],
+        "clusters": 961
+      },
+      "secondary_strict": {
+        "n": 3212,
+        "wrong_to_right": 116,
+        "right_to_wrong": 113,
+        "net_correct": 3,
+        "delta_pp": 0.09339975093399751,
+        "cluster_bootstrap_95pct_pp": [
+          -0.7984367732826125,
+          1.0339606138540216
+        ],
+        "clusters": 961
+      }
+    }
+  },
+  "formal_wall_seconds": 13922.743764162064,
+  "historical_setup": {
+    "source": "experiments/av_evidence_agent_v1/memory_v13/runs/completed_audit/AUDIT.json",
+    "source_sha256": "1991cf85ec7bc7a94df8d622f6eb2998cee18f13d6c49835be5b34dfd6e37a02",
+    "v13_formal_wall_seconds": 3767.315656,
+    "v13_formal_load_seconds": 166.297375,
+    "v13_pilot_wall_seconds": 185.248179,
+    "v13_pilot_question_work_seconds": 274.874905,
+    "v13_pilot_load_seconds": 163.902674,
+    "v13_extra_four_path_probe_work_seconds": 39.518128,
+    "v13_extra_four_path_probe_load_seconds": 53.119872,
+    "note": "Reused historical technical validation and dev20 setup, not new full-evaluation execution. Work sums and elapsed times are not interchangeable. Earlier failed method development is additional history."
+  },
+  "conclusion": "Small descriptive net gains; all four remaining80 cluster intervals cross zero. No tuning/ablation authorized. Preserve development leaderboard separately."
+}
