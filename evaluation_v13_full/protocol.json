@@ -1,0 +1,49 @@
+{
+  "version": "frozen_v13_full_evaluation",
+  "purpose": "Complete integrated method development; no component ablations this round",
+  "datasets": {
+    "joint": 2853,
+    "avspeaker": 3212
+  },
+  "subset": "User authorized full dataset 2026-10-03; reuse exact V13 dev20 outputs, execute only frozen complement2282/2570 per model.",
+  "models": [
+    "Qwen2.5-Omni-7B",
+    "VideoLLaMA2.1-7B-AV"
+  ],
+  "physical_gpus": [
+    0,
+    1,
+    3
+  ],
+  "schedule": "all three GPUs independently load the same complete model; Omni Joint then AV, VideoLLaMA Joint then AV",
+  "pipeline": [
+    "reuse immutable native answer",
+    "one global call: candidate first, bounded evidence, actual input-frame anchor, temporal relation",
+    "agreement retains native; disagreement with justified uncapped event anchor optionally replays <=12s",
+    "isolated verifier sees original global and fresh local evidence only",
+    "revise only if free-generation verifier agrees with candidate; else native"
+  ],
+  "new_calls_max": 3,
+  "logical_calls_max_including_native": 4,
+  "token_limits": {
+    "ledger": 128,
+    "local": 96,
+    "verification": 16
+  },
+  "new_generation": "greedy seed42; candidate enum A-D followed by evidence <=48 tokens, actual-frame enum or NONE and relation enum; verifier free generation",
+  "local_window_seconds_max": 12,
+  "memory": "Candidate-conditioned event ledger used only for proposal and window choice. Verifier receives no candidate/proposal ledger. Valid index is not verified factual localization.",
+  "no_cross_question_answer_memory": true,
+  "revision": "Agreement retains native. Disagreement requires separate evidence compartment verification. Unreadable/truncated proposal or unconfirmed revision retains native.",
+  "audio_budget": "Native global policy unchanged. Local crop may add audio evidence absent from native sparse/first300s coverage. Report as additional input, not memory-only or equal-compute gain.",
+  "scoring": "same frozen v5 parser; AV official first-letter primary plus strict secondary; all planned questions count, missing/unparsed/errors wrong",
+  "cost": "new cold application-cache work plus reused native recorded seconds; initialization and technical pilot separately; OS cache uncontrolled",
+  "technical_pilot": "No new algorithm or preprocessing; reuse V13 passed24 pilot and4path probes. No baseline generation. Byte-identical method.py/ledger_grammar.py and all native dependencies verified.",
+  "selection": "V13 chosen before complement evaluation. No tuning/early stopping by interim accuracy. Report dev20, remaining80, full separately. Prior baseline audits and shared videos mean complement is not a pristine independent holdout.",
+  "novelty_status": "Hypothesis only: evidence-addressed bounded acquisition plus isolated verification, no established novelty or generalization gain.",
+  "stop": "one full round then evidence-based next-version review; no blind endless GPU occupation; OOM at most three process attempts per shard, other errors diagnosed",
+  "repair": "Independent interface repair after V12 label-blind pilot copied numeric metadata into evidence. Initial prompt uses actual chronological frame-address vocabulary but no source-second table; raw keeps exact source mapping. No punctuation early stop (decimal points were mistaken for sentence ends). No accuracy inspected; V12 preserved and never released.",
+  "control_parser": "Frozen joint_parser for native and free verifier; candidate syntax-constrained A-D, separate from unchanged formal scorer",
+  "memory_validation": "Descriptive uncapped evidence plus actual supplied-frame address required for replay; NONE/GLOBAL -> global verification, no audio-gap fallback; field caps/raw retained",
+  "initial_prompt_metadata": "Actual chronological frame addresses only; continuous/sparse/overlap semantics. Exact times and source intervals always stored, provided to local/verifier context."
+}
