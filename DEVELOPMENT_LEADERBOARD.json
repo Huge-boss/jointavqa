@@ -659,7 +659,12 @@
     "formal_wall_seconds": 9178.927512407303,
     "pilot_wall_seconds": 260.3467695713043
   },
-  "next_candidate": "Visible paired-address full-method design and CPU prototype complete in address_binding_design; model readability/runtime/pilot not validated, no V14 formal run launched.",
+  "next_candidate": {
+    "status": "no_released_candidate",
+    "latest_complete": "v13",
+    "latest_technical": "v14",
+    "next": "Evidence bottleneck review; no blind restart or automatic V15 release."
+  },
   "v11_complete_table": [
     {
       "dataset": "joint",
@@ -1086,5 +1091,18 @@
     "reviews": 7,
     "field_caps": 173,
     "total_token_caps": 0
+  },
+  "technical_only_history": {
+    "v14": {
+      "status": "technical_failed_not_released",
+      "formal_n": 0,
+      "pilot24_started": false,
+      "probe_attempts": 4,
+      "completed_readouts": 3,
+      "instrumentation_errors": 1,
+      "strict_gate_passed": 0,
+      "report": "V14_TECHNICAL_FINDINGS_ZH.txt",
+      "archive_sha256": "15f2a081ad235717d184fcc40c85eedb00c4395a41fda6b7e95d598caced265e"
+    }
   }
 }

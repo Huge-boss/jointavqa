@@ -13,3 +13,5 @@ V13正式阶段墙钟62.79分钟；历史native成本、正式加载、pilot和4
 V13不是每组最佳：AV Omni与AV Video分别比V11少1/2题。保留统一方案，禁止拼最佳。
 V7/V8/V9/V12是技术预检历史，未作为完整算法轮入榜；原始失败保留。
 下一步见V13_NEXT_EVIDENCE_PLAN.txt。
+
+2026-10-03 V14仅技术检查：4进程尝试/3次实际读码生成/1个生成前BF16审计转换错误，冻结严格门禁未通过。未运行24pilot及正式20%，不计完整算法轮；Omni前缀读对但格式不符，Joint Video读错，AV Video未知。详见V14_TECHNICAL_FINDINGS_ZH.txt。
